@@ -10,47 +10,46 @@
     <meta name="description" content="Simple task list">
     <meta name="author" content="Liliya Yalovchenko">
     <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+    <link rel="shortcut icon" href="/"/>
 </head>
 <body style="background-color: #e8edf3">
+<div class="container">
 
-<div class="container-fluid">
-    <h2 class="tasks-header">Task list</h2>
+        <img src="images/list.png" align="middle" alt="Tasks list" width="64" style="display:block; margin:20px auto;">
 
-    <p class="text-left" style="color: #22264b; font-style: italic">You can add a new task to the list, remove one or update status to set task
+    <h2 class="tasks-header text-center">Task list</h2>
+    <p class="text-center" style="color: #22264b; font-family: OpenSans-Light; font-style: italic; font-size: 20px">You can add a new task to the list, remove one or update status to set task
         status completed</p>
     <c:if test="${ not empty message}">
         <p>${message}</p>
     </c:if>
-
-    <div class="table-responsive">
-        <table class="table table-striped">
+<form action="<c:url value="/updateList"/>" method="post">
+    <div class="table-responsive" style="border-style: none">
+        <table class="table table-hover">
             <thead>
             <tr>
-                <th>#</th>
                 <th>Name</th>
                 <th>Category</th>
                 <th>Complete</th>
             </tr>
             </thead>
             <tbody>
-
-
-            <%! int numb = 1; %>
             <c:forEach var="task" items="${list}">
                 <tr>
-                    <td><% numb++;%></td>
-                    <td>${task.name}</td>
+                    <td>${task.name}<input type="hidden" name="name" value="${task.name}"></td>
                     <td>${task.category}</td>
                     <td>
-                        <input type="radio" name="isDone">
+                        <label>
+                            <input type="radio" name="isDone" value="${task.name}">
+                        </label>
                     </td>
                 </tr>
             </c:forEach>
             </tbody>
         </table>
     </div>
-    <div class="row"><input type="submit" value="Update tasks"></div>
-
+    <input type="submit" class="btn btn-default" value="Update tasks" style="background-color: #e6cf8b; border-style: none;">
+</form>
     <hr style="width: 95%;">
     <form role="form" action="/addTask" method="post">
         <div class="form-group">
@@ -61,10 +60,8 @@
             <label for="taskCategory">Category</label>
             <input type="text" class="form-control" id="taskCategory" name="category" placeholder="Enter category">
         </div>
-
-        <button type="submit" class="btn btn-default">Add task</button>
+        <button type="submit" class="btn btn-default" style="background-color: #e6cf8b; border-style: none">Add task</button>
     </form>
 </div>
-
 </body>
 </html>

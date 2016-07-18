@@ -13,7 +13,7 @@
 </head>
 <body style="background-color: #e8edf3">
 
-<div class="container-fluid">
+<div class="container">
     <h2 class="tasks-header">Task list</h2>
 
     <p class="text-left" style="color: #22264b; font-style: italic">You can add a new task to the list, remove one or update status to set task
@@ -21,6 +21,7 @@
     <c:if test="${ not empty message}">
         <p>${message}</p>
     </c:if>
+<form action="<c:url value="/updateList"/>" method="post">
 
     <div class="table-responsive">
         <table class="table table-striped">
@@ -36,21 +37,26 @@
 
 
             <%! int numb = 1; %>
+
             <c:forEach var="task" items="${list}">
                 <tr>
                     <td><% numb++;%></td>
-                    <td>${task.name}</td>
+                    <td>${task.name}<input type="hidden" name="name" value="${task.name}"></td>
                     <td>${task.category}</td>
                     <td>
-                        <input type="radio" name="isDone">
+                        <label>
+                            <input type="radio" name="isDone" value="${task.name}">
+                        </label>
+
                     </td>
+
                 </tr>
             </c:forEach>
             </tbody>
         </table>
     </div>
-    <div class="row"><input type="submit" value="Update tasks"></div>
-
+    <input type="submit" value="Update tasks">
+</form>
     <hr style="width: 95%;">
     <form role="form" action="/addTask" method="post">
         <div class="form-group">

@@ -68,4 +68,13 @@ public class Task {
         result = 31 * result + (isDone ? 1 : 0);
         return result;
     }
+
+    @Override
+    public String toString() {
+        return "Task{" +
+                "name='" + name + '\'' +
+                ", category='" + category + '\'' +
+                ", isDone=" + isDone +
+                '}';
+    }
 }

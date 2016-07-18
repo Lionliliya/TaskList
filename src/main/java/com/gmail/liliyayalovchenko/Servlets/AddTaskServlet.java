@@ -15,7 +15,6 @@ import java.util.List;
 public class AddTaskServlet extends HttpServlet {
 
 
-
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         List<Task> taskList = (List<Task>) request.getSession().getAttribute("list") != null ?

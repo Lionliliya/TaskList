@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.gmail.liliyayalovchenko</groupId>
-    <artifactId>we-task-list</artifactId>
+    <artifactId>web-task-list</artifactId>
     <version>1.0</version>
     <packaging>war</packaging>
 
@@ -24,9 +24,11 @@
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-war-plugin</artifactId>
                 <configuration>
-                    <webXml>src/main/resources/WEB_INF/web.xml</webXml>
-                    <webResources>src/main/WEB_INF</webResources>
+                    <webXml>src/main/webapp/WEB_INF/web.xml</webXml>
+                    <warName>taskList</warName>
+
                 </configuration>
+                <version>2.6</version>
             </plugin>
         </plugins>
     </build>

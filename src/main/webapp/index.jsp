@@ -10,10 +10,10 @@
     <meta name="description" content="Simple task list">
     <meta name="author" content="Liliya Yalovchenko">
     <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
-    <link rel="shortcut icon" href="/"/>
+    <link rel="shortcut icon" href="/images/list.png" sizes="64x64"/>
 </head>
 <body style="background-color: #e8edf3">
-<div class="container">
+<div class="container" style="width:80%;">
 
         <img src="images/list.png" align="middle" alt="Tasks list" width="64" style="display:block; margin:20px auto;">
 
